@@ -6,8 +6,7 @@ import { fetchFtpFilesSchedule, performXmlFileScan } from "./utils/ftpUtil";
 const PORT = 3000;
 const app = express();
 
-const MONGO_URL =
-  "mongodb+srv://testv:rtyLhHWfzTZ00FaE8@cluster0.uca1gz8.mongodb.net/?retryWrites=true&w=majority";
+const MONGO_URL: string  = process.env.MONGO_DB_URL as string;
 mongoose.Promise = Promise;
 mongoose.connect(MONGO_URL);
 mongoose.connection.on("error", (error: Error) => console.log(error));
